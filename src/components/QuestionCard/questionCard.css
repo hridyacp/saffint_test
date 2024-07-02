@@ -1,0 +1,35 @@
+.question-container{
+    padding: 24px;
+    text-align: left;
+}
+.mainquestion{
+    font-weight: normal;
+    font-size: 36px;
+}
+.options-container{
+    background-color: #0E46FD;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:16px;
+  height:100%;
+}
+.options{
+    background-color: #2057FD;
+  width: 30%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.options:hover{
+    background-color: white;
+  width: 30%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2057FD;
+}

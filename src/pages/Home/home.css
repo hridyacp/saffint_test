@@ -1,0 +1,28 @@
+
+.containerStyles{
+    height: 5px;
+    width: 80%;
+    background-color: #DCE1EE;
+    border-radius: 50;
+    margin: 50;
+  }
+.progress-container{
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  gap:32px;
+  height:fit-content;
+  padding-top: 60px;
+}
+  .fillerStyles {
+    height: 100%;
+    background-color: #0E46FCff;
+    border-radius: inherit;
+    text-align: right;
+  }
+
+ .labelStyles {
+  font-size: 24px;
+    color: black;
+    font-weight: normal;
+  }
