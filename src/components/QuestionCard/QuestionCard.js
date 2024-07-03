@@ -1,26 +1,56 @@
+import { useEffect, useState } from 'react';
 import './questionCard.css';
 const QuestionCard=({questionsList,currentIndex,setCurrentIndex,answeredList,setAnsweredList,setCompleted})=>{
-    
+    const [isClicked,setIsClicked]=useState(false);
+    const [isActive,setIsActive]=useState(null);
    const setOptions=(index)=>{
-    let answered={};
-    answered.question=questionsList[currentIndex]?.question;
-    answered.option=questionsList[currentIndex]?.options[index]?.label;
-    answered.isCorrect=questionsList[currentIndex]?.options[index]?.isCorrect;
-    setAnsweredList((prev)=>[...prev,answered]);
-    let completedPercent;
-    setCurrentIndex((prev)=>prev+1)
-    completedPercent=(currentIndex+1)*100/questionsList?.length-1;
-    setCompleted(completedPercent);
+    setIsClicked(true);
+    setIsActive(index);
+    setTimeout(()=>{
+        let currentAnswered={};
+        let answered=[];
+        answered=answeredList;
+        console.log(answered);
+        currentAnswered.id=currentIndex+1;
+        currentAnswered.question=questionsList[currentIndex]?.question;
+        currentAnswered.option=questionsList[currentIndex]?.options[index]?.label;
+        currentAnswered.isCorrect=questionsList[currentIndex]?.options[index]?.isCorrect;
+        
+       const uniqueAnswered=answered.filter((item)=>{return item.id!==currentAnswered.id});
+       console.log(uniqueAnswered,"unique")
+       uniqueAnswered.push(currentAnswered);
+        
+        setAnsweredList(uniqueAnswered);
+        
+        let completedPercent;
+        setCurrentIndex((prev)=>prev+1)
+        completedPercent=(currentIndex+1)*100/questionsList?.length-1;
+        setCompleted(completedPercent);
+        setIsClicked(false);
+        setIsActive(null);
+    },3000)
    }
+
     return(
-        <div style={{display:"flex",flexDirection:"column",height:"100%",flexGrow:1,gap:"100px"}}>
+        <div className='question-container'>
            
-            <span className="mainquestion">{questionsList[currentIndex]?.question}</span>
-           
-                <div className='options-container'>
+            <div className="mainquestion">{questionsList[currentIndex]?.question}
+            </div>
+            
+                <div className='main-questcontainer'>
+                <div className='container'>
+            <div className='decor-div1'></div>
+            <div className='decor-div1'></div>
+            <div className='decor-div1'></div>
+            </div>
+            <div className='options-container'>
            {questionsList[currentIndex]?.options?.map((item,index)=>(
-            <div key={index} className="options" onClick={()=>setOptions(index)}>{item?.label}</div>
+            <div className={isActive===index?'options-div active':'options-div'} key={index} onClick={()=>setOptions(index)}>
+           <div className='options-subdiv'> <div className={'sub-div'}></div><div className="options">{(index+1 + 9).toString(36)}</div></div><div  className="options">{item?.label}{isClicked && isActive===index?<div className="loading"></div>:""}</div>
+           
+            </div>
            ))}
+           </div>
            </div>
             
         </div>

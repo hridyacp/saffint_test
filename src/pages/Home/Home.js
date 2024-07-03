@@ -18,7 +18,7 @@ const Home=()=>{
     },[]);
 
     useEffect(()=>{
-        console.log(completed)
+        console.log(completed,'completed')
     },[currentIndex])
 
     const getQuestionList=async()=>{
@@ -31,18 +31,18 @@ const Home=()=>{
         let completedPercent
         if(type==='Inc'){
         setCurrentIndex((prev)=>prev+1)
-        completedPercent=(currentIndex+1)*100/questionsList?.length-1;
+        completedPercent=(answeredList?.length)*100/(questionsList?.length);
         }
     else{
         setCurrentIndex((prev)=>prev-1)
-        completedPercent=(currentIndex-1)*100/questionsList?.length-1;
+        completedPercent=(answeredList?.length)*100/(questionsList?.length);
     }
     setCompleted(completedPercent);
     }
-console.log(completed,"completed")
+
     return(
         <div className="App">
-            <div style={{display:"flex",flexDirection:"column",height:"100vh", flexGrow: 1,gap:"80px"}}>
+            <div className="main-container">
           
             <div className="progress-container"  >
                 <Grid container item xs={12}>
@@ -52,7 +52,7 @@ console.log(completed,"completed")
         ""}
         </Grid>
         <Grid item xs={8}>
-        <span className={'labelStyles'} >{currentIndex}/{questionsList?.length-1}</span>
+        <span className={'labelStyles'} >{currentIndex+1}/{questionsList?.length}</span>
         </Grid>
         <Grid item xs={2}>
         {currentIndex!==questionsList?.length-1?
@@ -68,9 +68,16 @@ console.log(completed,"completed")
     </div>
         </Grid>
         </div>
-       
+        <div className="answered-count">
+        <div>
+Answered: {answeredList?.length}
+</div>
+<div>
+Not Answered: {questionsList?.length-answeredList?.length}
+</div>
+        </div>
             <QuestionCard questionsList={questionsList} currentIndex={currentIndex} setCurrentIndex={(currentIndex)=>setCurrentIndex(currentIndex)} 
-            answeredList={setAnsweredList} setAnsweredList={(answeredList)=>setAnsweredList(answeredList)} setCompleted={(completed)=>setCompleted}/>
+            answeredList={answeredList} setAnsweredList={(answeredList)=>setAnsweredList(answeredList)} setCompleted={(completed)=>setCompleted(completed)}/>
        
         </div>
       </div>
