@@ -11,8 +11,8 @@ const Home=()=>{
     const [currentIndex,setCurrentIndex]=useState(0);
     const [passMark,setPassmark]=useState(0);
     const [completed,setCompleted]=useState(0);
-    const [answeredList,setAnsweredList]=useState([]);
-    console.log(answeredList,"answer")
+    const [isAnswered,setIsAnswered]=useState(false);
+
     useEffect(()=>{
      getQuestionList();
     },[]);
@@ -23,22 +23,36 @@ const Home=()=>{
 
     const getQuestionList=async()=>{
     const response= await Questions();
-    setQuestionsList(response?.questions);
+    const data=response?.questions;
+    data.forEach(function (element,index) {
+        element.isAnswered = "false";
+        element.answer="";
+        element.id=index+1;
+      });
+    setQuestionsList(data);
     setPassmark(response?.passmark);
     }
 
     const setIndex=(type)=>{
         let completedPercent
+        let count=questionsList.filter ((answer) => answer?.isAnswered === true).length
+        console.log(count,"count")
         if(type==='Inc'){
+            if(currentIndex<questionsList?.length)
         setCurrentIndex((prev)=>prev+1)
-        completedPercent=(answeredList?.length)*100/(questionsList?.length);
         }
-    else{
+    else if(type==='Dec'){
+        if(currentIndex!==0)
         setCurrentIndex((prev)=>prev-1)
-        completedPercent=(answeredList?.length)*100/(questionsList?.length);
     }
+    completedPercent=(count)*100/(questionsList?.length);
     setCompleted(completedPercent);
     }
+
+    useEffect(()=>{
+setIndex()
+setIsAnswered(false);
+    },[isAnswered])
 
     return(
         <div className="App">
@@ -70,14 +84,15 @@ const Home=()=>{
         </div>
         <div className="answered-count">
         <div>
-Answered: {answeredList?.length}
+Answered: {questionsList.filter ((answer) => answer?.isAnswered === true).length}
 </div>
 <div>
-Not Answered: {questionsList?.length-answeredList?.length}
+Not Answered: {questionsList?.length-questionsList.filter ((answer) => answer?.isAnswered === true).length}
 </div>
         </div>
             <QuestionCard questionsList={questionsList} currentIndex={currentIndex} setCurrentIndex={(currentIndex)=>setCurrentIndex(currentIndex)} 
-            answeredList={answeredList} setAnsweredList={(answeredList)=>setAnsweredList(answeredList)} setCompleted={(completed)=>setCompleted(completed)}/>
+          setQuestionsList={(questionsList)=>setQuestionsList(questionsList)} setCompleted={(completed)=>setCompleted(completed)}
+            isAnswered={isAnswered} setIsAnswered={(answered)=>setIsAnswered(answered)}/>
        
         </div>
       </div>
