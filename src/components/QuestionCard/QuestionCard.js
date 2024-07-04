@@ -3,7 +3,6 @@ import './questionCard.css';
 const QuestionCard=({questionsList,currentIndex,setCurrentIndex,setQuestionsList,setCompleted,setIsAnswered})=>{
     const [isClicked,setIsClicked]=useState(false);
     const [isActive,setIsActive]=useState(null);
-    console.log(questionsList,currentIndex,"quest")
    const setOptions=(index)=>{
     setIsClicked(true);
     setIsActive(index);
@@ -36,30 +35,31 @@ const QuestionCard=({questionsList,currentIndex,setCurrentIndex,setQuestionsList
         currentAnswered[answeredId].options[index].isSelected=true;
          currentAnswered[answeredId].isAnswered=true;
          setQuestionsList(currentAnswered);
-         if(currentIndex<questionsList?.length){
+         console.log(currentIndex,questionsList?.length,"compare")
+         if(currentIndex+1<questionsList?.length){
          setCurrentIndex((prev)=>prev+1);
          }
          setIsAnswered(true);
         setIsClicked(false);
         setIsActive(null);
-    },3000)
+    },1500)
    }
 
     return(
         <div className='question-container'>
            
-            <div className="mainquestion">{questionsList[currentIndex]?.question}
+            <div className={isClicked?"mainquestion-out":"mainquestion-in"}>{questionsList[currentIndex]?.question}
             </div>
             
                 <div className='main-questcontainer'>
-                <div className='container'>
+                {/* <div className='container'> */}
             <div className='decor-div1'></div>
             <div className='decor-div1'></div>
             <div className='decor-div1'></div>
-            </div>
-            <div className='options-container'>
+            {/* </div> */}
+            <div className={isClicked?'options-container-out':'options-container-in'}>
            {questionsList[currentIndex]?.options?.map((item,index)=>(
-            <div className={isActive===index?'options-div active':'options-div'} key={index} onClick={()=>setOptions(index)}>
+            <div className={isActive===index?`options-div-${item?.isSelected} active`:`options-div-${item?.isSelected}`} key={index} onClick={()=>setOptions(index)}>
            <div className='options-subdiv'> <div className={'sub-div'}></div><div className="options">{(index+1 + 9).toString(36)}</div></div><div  className="options">{item?.label}{isClicked && isActive===index?<div className="loading"></div>:""}</div>
            
             </div>

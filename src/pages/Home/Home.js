@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import './home.css';
 import QuestionCard from "../../components/QuestionCard/QuestionCard";
+import ConfirmDialogue from "../../components/ConfirmDialogue/ConfirmDialogue";
 
 const Home=()=>{
     const [questionsList,setQuestionsList]=useState([]);
@@ -12,6 +13,7 @@ const Home=()=>{
     const [passMark,setPassmark]=useState(0);
     const [completed,setCompleted]=useState(0);
     const [isAnswered,setIsAnswered]=useState(false);
+    const [isFinished,setIsFinished]=useState(false);
 
     useEffect(()=>{
      getQuestionList();
@@ -38,7 +40,6 @@ const Home=()=>{
     const setIndex=(type)=>{
         let completedPercent
         let count=questionsList.filter ((answer) => answer?.isAnswered === true).length
-        console.log(count,"count")
         if(type==='Inc'){
             if(currentIndex<questionsList?.length)
         setCurrentIndex((prev)=>prev+1)
@@ -56,10 +57,14 @@ setIndex()
 setIsAnswered(false);
     },[isAnswered])
 
+    const openConfirmDialogue=()=>{
+        setIsFinished(true);
+    }
+
     return(
         <div className="App">
             <div className="main-container">
-          
+            
             <div className="progress-container"  >
                 <Grid container item xs={12}>
         <Grid item xs={2} >
@@ -73,6 +78,8 @@ setIsAnswered(false);
         <Grid item xs={2}>
         {currentIndex!==questionsList?.length-1?
         <FontAwesomeIcon icon={faAngleRight} onClick={()=>setIndex('Inc')}/>:
+       (currentIndex+1)===questionsList?.length?
+        <span onClick={openConfirmDialogue}>Finish</span>:
         ""}
         </Grid>
         </Grid>
@@ -97,6 +104,9 @@ Not Answered: {questionsList?.length-questionsList.filter ((answer) => answer?.i
             isAnswered={isAnswered} setIsAnswered={(answered)=>setIsAnswered(answered)}/>
        
         </div>
+        {isFinished?
+        <ConfirmDialogue isFinished={isFinished} setIsFinished={(isFinished)=>setIsFinished(isFinished)} passMark={passMark} 
+        questionsList={questionsList} currentIndex={currentIndex} completed={completed}/>:""}
       </div>
 
     )

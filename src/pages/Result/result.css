@@ -1,0 +1,52 @@
+.result-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height:100vh;
+    gap:100px;
+}
+.answered-result{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0rem 0px 0rem;
+    width:100%;
+}
+.containerStyle{
+    height: 5px;
+    width: 80%;
+    background-color: #DCE1EE;
+    border-radius: 50;
+    margin: 50;
+  }
+  .fillerStyle {
+    height: 100%;
+    background-color: #0E46FCff;
+    border-radius: inherit;
+    text-align: right;
+  }
+.passed{
+      font-size: 24px;
+      display: flex;
+      flex-direction: column;
+      gap:20px;
+}
+    
+.failed{
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.total-result{
+    font-size: 24px;
+}
+.retake{
+    display: flex;
+    justify-content: space-between;
+}
+.link{
+    cursor: pointer;
+    color: green;
+}
