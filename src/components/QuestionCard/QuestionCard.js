@@ -33,7 +33,7 @@ const QuestionCard=({questionsList,currentIndex,setCurrentIndex,setQuestionsList
     setTimeout(()=>{
         let currentAnswered=questionsList;
         let answeredId = currentAnswered.findIndex(o => o.id === currentIndex+1 );
-        currentAnswered[answeredId].answer=questionsList[currentIndex]?.options[index]?.label;
+        currentAnswered[answeredId].options[index].isSelected=true;
          currentAnswered[answeredId].isAnswered=true;
          setQuestionsList(currentAnswered);
          if(currentIndex<questionsList?.length){

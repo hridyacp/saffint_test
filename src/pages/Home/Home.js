@@ -26,8 +26,10 @@ const Home=()=>{
     const data=response?.questions;
     data.forEach(function (element,index) {
         element.isAnswered = "false";
-        element.answer="";
         element.id=index+1;
+        element.options.forEach(function (el) {
+            el.isSelected = "false";
+          });
       });
     setQuestionsList(data);
     setPassmark(response?.passmark);
