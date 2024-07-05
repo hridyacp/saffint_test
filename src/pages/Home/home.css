@@ -2,8 +2,6 @@
   display:flex;
   flex-direction:column;
   height:100vh;
-   flex-grow: 1;
-   gap:60px
 }
 .containerStyles{
     height: 5px;
@@ -38,6 +36,9 @@
     justify-content: space-between;
     padding: 0px 10rem 0px 10rem;
 
+  }
+  .questions{
+    flex-grow: 1;
   }
 
   @media only screen and (max-width: 980px) {

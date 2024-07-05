@@ -4,33 +4,68 @@
     justify-content: flex-start;
     align-items: center;
     height:100vh;
-    gap:100px;
+    gap:30px;
+    padding-top: 20px;
 }
 .answered-result{
     font-size: 20px;
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem 0rem 0px 0rem;
-    width:100%;
+    width: 100%;
+    text-align: left;
+    padding-left:5%;
 }
-.containerStyle{
-    height: 5px;
-    width: 80%;
-    background-color: #DCE1EE;
-    border-radius: 50;
-    margin: 50;
-  }
-  .fillerStyle {
-    height: 100%;
-    background-color: #0E46FCff;
-    border-radius: inherit;
-    text-align: right;
-  }
+
+.answered-percent{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    width:80%;
+}
+.correct-answer{
+    background-color: rgb(18, 241, 18);
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width:150px;
+    height:60px;
+}
+.wrong-answer{
+    background-color: #F992A7;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    width:150px;
+    height:60px;
+}
+.message-container{
+    /* background-color: #F992A7; */
+    padding: 20px;
+    border-radius: 20px;
+    /* color:white; */
+    color:black;
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    box-shadow: #0E46FCff 0px 4px 12px;
+}
+.inspire{
+font-size: 28px;
+font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.divide{
+    border-right: 1px solid white;
+    height:30px;
+    width: 2px;
+}
+
 .passed{
       font-size: 24px;
       display: flex;
       flex-direction: column;
       gap:20px;
+      text-align: left;
+      font-family:Georgia, 'Times New Roman', Times, serif
 }
     
 .failed{
@@ -38,9 +73,14 @@
     display: flex;
     flex-direction: column;
     gap:20px;
+    text-align: left;
+    font-family:Georgia, 'Times New Roman', Times, serif
 }
 .total-result{
-    font-size: 24px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
 }
 .retake{
     display: flex;
@@ -48,5 +88,90 @@
 }
 .link{
     cursor: pointer;
-    color: green;
+    color: #0E46FD;
+}
+.question-contain{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap:16px;
+}
+.mainquestion{
+    font-size:20px;
+}
+.options-contain{
+    background-color: #0E46FCff;
+    display:flex;
+    flex-direction: column;
+    width:45%;
+    padding:8px;
+    gap:10px;
+}
+.options-div{
+    display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  gap:20px;
+  background-color:#2057FD;
+  background-image: linear-gradient(#eef5f7,#dfe8eb);
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  color:white;
+  padding:1%;
+}
+
+.correct{
+    background-color:white;
+    color:#2057FD;
+}
+.incorrect{
+  /* background-color: #F992A7; */
+  background-color: #FC6F0E;
+}
+@media only screen and (max-width: 980px) {
+    .options-contain{
+        background-color: #0E46FCff;
+        display:flex;
+        flex-direction: column;
+        width:80%;
+        padding:8px;
+        gap:10px;
+    }
+    .question-contain{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap:16px;
+        padding-right:20px;
+    }
+    .result-container{
+        padding:50px 20px 50px 20px;
+    }
+    .correct-answer{
+        width:100px;
+        height:60px;
+    }
+    .wrong-answer{
+        width:100px;
+        height:60px;
+    }
+    .answered-percent{
+        font-size: 18px;
+    }
+    .total-result{
+        flex-direction: column;
+        font-size: 20px;
+    }
+    .answered-result{
+        font-size: 20px;
+    }
+    .passed{
+        font-size: 20px;
+    }
+    .failed{
+        font-size: 20px;
+    }
 }
