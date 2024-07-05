@@ -1,7 +1,10 @@
 .main-container{
   display:flex;
   flex-direction:column;
-  height:100vh;
+  height:100%;
+  width:100%;
+  gap:16px;
+  flex: 1;
 }
 .containerStyles{
     height: 5px;

@@ -179,19 +179,19 @@ animation: options-container-out 1s ease-out forwards;
 
 @media only screen and (max-width: 880px) {
   .question-container{
-    gap:70px;
+    gap:90px;
   }
   .mainquestion-in{
     text-align: left;
     padding-left:20px;
-    font-size:24px;
+    font-size:32px;
     font-weight: normal;
     height:100px;
   }
   .mainquestion-out{
     text-align: left;
     padding-left:20px;
-    font-size:24px;
+    font-size:32px;
     font-weight: normal;
     height:100px;
   }

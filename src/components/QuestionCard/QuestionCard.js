@@ -30,11 +30,9 @@ const QuestionCard = ({ questionsList, currentIndex, setCurrentIndex, setQuestio
             <div className="history">History of places
             </div>
             <div className='main-questcontainer'>
-                {/* <div className='container'> */}
                 <div className='decor-div1'></div>
                 <div className='decor-div1'></div>
                 <div className='decor-div1'></div>
-                {/* </div> */}
                 <div className={isClicked ? 'options-container-out' : 'options-container-in'}>
                     {questionsList[currentIndex]?.options?.map((item, index) => (
                         <div className={isActive === index ? `options-div-${item?.isSelected} active` : `options-div-${item?.isSelected}`} key={index} onClick={() => setOptions(index)}>

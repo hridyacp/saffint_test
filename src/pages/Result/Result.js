@@ -88,13 +88,15 @@ const Result = () => {
                                 <div className='question-contain'>
                                    <div className="mainquestion">{i+1}. <span >{quest?.question}</span>
                                     </div>
+                                    <div className="option-main">
                                     <div className='options-contain'>
                                         {quest?.options?.map((item, index) => (
                                             <div className={item?.isCorrect ? `options-div correct` : item?.isSelected && !item?.isCorrect ? 'options-div incorrect' : 'options-div'} key={index}>
-                                             <div className="options" style={{justifyContent:"space-around"}}> <div>{(index + 1 + 9).toString(36)}</div>
+                                             <div className="options" style={{justifyContent:"space-around",width:"50%"}}> <div>{(index + 1 + 9).toString(36)}</div>
                                                     <div>{item?.label}</div> </div> {item?.isCorrect?<FontAwesomeIcon icon={faCheck} />:item?.isSelected && !item?.isCorrect?<FontAwesomeIcon icon={faXmark} />:<FontAwesomeIcon icon={faXmark} style={{visibility:"hidden"}}/>}    
                                             </div>
                                         ))}
+                                    </div>
                                     </div>
                                 </div></Grid>)
                         )}
