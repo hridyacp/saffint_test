@@ -2,14 +2,14 @@
 
 This is a quiz app about the histor of places.
 
-- Item 1: All questions are generated randomly on each load.
-- Item 2: All options to each questions are also randomly generated.
-- Item 3: A user can go back and change any selected answer before submission.
-- Item 4: User can go back and forward each question to check or change or to skip.
-- Item 5: Once user submits, he/she is redirected to the score page.
-- Item 6: Score page has the details of correct number of answers, skipped and attempted nu,ber of answers.
-- Item 7: User can also check the nswers on the score page.
-- Item 8: User can also re atempt the quiz from the score page, if he/she wishes.
+- All questions are generated randomly on each load.
+- All options to each questions are also randomly generated.
+- A user can go back and change any selected answer before submission.
+- User can go back and forward each question to check or change or to skip.
+- Once user submits, he/she is redirected to the score page.
+- Score page has the details of correct number of answers, skipped and attempted nu,ber of answers.
+- User can also check the nswers on the score page.
+- User can also re atempt the quiz from the score page, if he/she wishes.
 
 ## Available Scripts
 
