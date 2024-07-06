@@ -1,17 +1,31 @@
 .result-container{
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    height:100vh;
-    gap:30px;
     padding-top: 20px;
+    background-color: #082784;
+    color:white;
+    min-height:100%;
+    background-size: contain;
+    padding:10px;
+}
+.box-container{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    height: inherit;
+    border-radius: 20px;
+    box-shadow: rgba(238, 237, 237, 0.35) 0px 5px 15px;
+    padding:20px;
+    margin:80px;
 }
 .answered-result{
     font-size: 20px;
     width: 100%;
-    text-align: left;
+    text-align: center;
     padding-left:5%;
+    text-align: left;
+    padding-left: 20%;
 }
 
 .answered-percent{
@@ -22,22 +36,7 @@
     font-size: 24px;
     width:80%;
 }
-.correct-answer{
-    background-color: rgb(18, 241, 18);
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-    width:150px;
-    height:60px;
-}
-.wrong-answer{
-    background-color: #F992A7;
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-    width:150px;
-    height:60px;
-}
+
 .message-container{
     /* background-color: #F992A7; */
     padding: 20px;
@@ -46,26 +45,25 @@
     color:black;
     display:flex;
     flex-direction: column;
-    gap:10px;
-    box-shadow: #0E46FCff 0px 4px 12px;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
 }
 .inspire{
-font-size: 28px;
+font-size: 32px;
 font-family:Georgia, 'Times New Roman', Times, serif;
-}
-.divide{
-    border-right: 1px solid white;
-    height:30px;
-    width: 2px;
+color:white;
+text-shadow: 2px 2px 4px #000000;
 }
 
 .passed{
-      font-size: 24px;
+      font-size: 20px;
       display: flex;
       flex-direction: column;
       gap:20px;
       text-align: left;
-      font-family:Georgia, 'Times New Roman', Times, serif
+      font-family:Georgia, 'Times New Roman', Times, serif;
+      color:white;
 }
     
 .failed{
@@ -74,10 +72,11 @@ font-family:Georgia, 'Times New Roman', Times, serif;
     flex-direction: column;
     gap:20px;
     text-align: left;
-    font-family:Georgia, 'Times New Roman', Times, serif
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    color:white;
 }
 .total-result{
-    font-size: 20px;
+    font-size: 12px;
     display: flex;
     justify-content: space-between;
     width: 90%;
@@ -87,8 +86,11 @@ font-family:Georgia, 'Times New Roman', Times, serif;
     justify-content: space-between;
 }
 .link{
+    padding:10px;
+    border-radius: 10px;
     cursor: pointer;
     color: #0E46FD;
+    font-size: 16px;
 }
 .question-contain{
     display: flex;
@@ -103,7 +105,7 @@ font-family:Georgia, 'Times New Roman', Times, serif;
 .option-main{
     width:100%;
     display:flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .options-contain{
     background-color: #0E46FCff;
@@ -126,7 +128,13 @@ font-family:Georgia, 'Times New Roman', Times, serif;
   color:white;
   padding:1%;
 }
-
+.option{
+    width: 40%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 .correct{
     background-color:white;
     color:#2057FD;
@@ -136,6 +144,12 @@ font-family:Georgia, 'Times New Roman', Times, serif;
   background-color: #FC6F0E;
 }
 @media only screen and (max-width: 980px) {
+    .result-container{
+        padding:5px;
+    }
+    .box-container{
+        margin:20px;
+    }
     .options-contain{
         background-color: #0E46FCff;
         display:flex;
@@ -155,24 +169,23 @@ font-family:Georgia, 'Times New Roman', Times, serif;
     .result-container{
         padding:50px 20px 50px 20px;
     }
-    .correct-answer{
-        width:100px;
-        height:60px;
-    }
-    .wrong-answer{
-        width:100px;
-        height:60px;
+    .option-main{
+        justify-content: center;
     }
     .answered-percent{
         font-size: 18px;
     }
+    .answered-result{
+        text-align: center;
+        padding-left:5%;
+        text-align: left;
+        font-size: 20px;
+    }
     .total-result{
         flex-direction: column;
-        font-size: 20px;
+        font-size: 12px;
     }
-    .answered-result{
-        font-size: 20px;
-    }
+       
     .passed{
         font-size: 20px;
     }
