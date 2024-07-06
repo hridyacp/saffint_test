@@ -18,8 +18,7 @@
     font-size: 36px;
    width:100%;
    text-align: center;
-   animation: mainquestion-in 1s ease-in-out forwards;
-   /* animation-delay: .21s; */
+   animation: slideIn 1s ease-in-out forwards;
 }
 .mainquestion-out{
   display: flex;
@@ -29,18 +28,29 @@
   font-size: 36px;
  width:100%;
  text-align: center;
- animation: mainquestion-out 1s ease-out forwards;
- /* animation-delay: .21s; */
+ animation: slideOut 1s ease-out forwards;
 }
 
-@keyframes mainquestion-in { 
-  from { opacity:0; }  
-  to { opacity:1; }  
-} 
+@keyframes slideIn {
+  from {
+    right: -100%;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
 
-@keyframes mainquestion-out { 
-  from { opacity:1; }  
-  to { opacity:0; }  
+@keyframes slideOut {
+  from {
+    right: 0;
+    opacity: 1;
+  }
+  to {
+    right: -100%;
+    opacity: 0;
+  }
 }
 
 .history{
@@ -68,7 +78,7 @@ width:100%;
   gap:16px;
   height:100%;
   width:100%;
-  animation: options-container-in 1s ease-in-out forwards;
+  animation: slideIn 1s ease-in-out forwards;
 }
 .options-container-out{
   /* background-color: #0E46FD; */
@@ -79,19 +89,10 @@ align-items: center;
 gap:16px;
 height:100%;
 width:100%;
-animation: options-container-out 1s ease-out forwards;
+animation: slideOut 1s ease-out forwards;
 /* animation-delay: .21s; */
 }
 
-@keyframes options-container-in { 
-  from { opacity:0; }  
-  to { opacity:1; }  
-} 
-
-@keyframes options-container-out { 
-  from { opacity:1; }  
-  to { opacity:0; }  
-}
 .options-div-false{
   display: flex;
   width: 20%;
